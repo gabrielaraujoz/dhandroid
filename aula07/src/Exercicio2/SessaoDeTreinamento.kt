@@ -6,7 +6,7 @@ class SessaoDeTreinamento (var experiencia: Int) {
         jogador.correr(jogador)
         jogador.fazerGol(jogador)
         jogador.correr(jogador)
-        jogador.experiencia++
+        jogador.experiencia += experiencia
         println("Experiência final: ${jogador.experiencia}")
     }
 }
