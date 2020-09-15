@@ -1,4 +1,4 @@
-package `Exercicio 3`
+package Exercicio3
 
 fun main() {
     var atletaUm = Atleta("Gabriel", 10,50)

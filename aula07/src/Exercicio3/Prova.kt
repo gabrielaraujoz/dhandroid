@@ -1,4 +1,4 @@
-package `Exercicio 3`
+package Exercicio3
 
 class Prova (var dificuldade: Int, var energiaNecessaria: Int) {
     fun realizarProva(atleta: Atleta) {
@@ -8,7 +8,7 @@ class Prova (var dificuldade: Int, var energiaNecessaria: Int) {
             atleta.energia -= energiaNecessaria
             println("Energia restante: ${atleta.energia}")
         } else {
-            println("$atleta não tem energia suficiente para realizar a prova")
+            println("${atleta.nome} não tem energia suficiente para realizar a prova")
         }
     }
 }
