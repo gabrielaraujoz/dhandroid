@@ -45,6 +45,7 @@ fun main() {
 
                             var novaConta = ContaCorrente(taxaConta, numeroConta, saldoInicial)
                             banco.inserirConta(novaConta)
+                            println("Conta criada com sucesso!")
                             loop2 = false
                         }
                         2 -> {
@@ -113,7 +114,7 @@ fun main() {
                         println("Valor transferido.")
                     } else if (opcao2 == "d") {
                         contaExiste.mostrarDados()
-                        break
+                        loop2 = false
                     } else {
                         break
                     }
@@ -124,7 +125,7 @@ fun main() {
                     var contaExiste = banco.procurarConta(numeroConta)
                     if (contaExiste == null) {
                         println("Essa conta não existe. Por favor tente novamente.")
-                        loop2 = false
+                        break
                     } else {
                         banco.removerConta(contaExiste)
                         println("Conta removida com sucesso!")
@@ -138,7 +139,7 @@ fun main() {
                 5 -> loop = false
                 else -> {
                     println("Por favor, digite um número de 1 a 5.")
-                    return
+                    break
                 }
             }
         } while (loop2 == true)

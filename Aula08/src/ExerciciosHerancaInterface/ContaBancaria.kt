@@ -8,8 +8,8 @@ abstract class ContaBancaria (protected val conta: Int, protected var saldo: Dou
         println("Saldo da conta: $saldo")
     }
     open fun transferir(valor: Double, contaBancaria: ContaBancaria) {
-        if (contaBancaria.sacar(valor)) {
-            contaBancaria.sacar(valor)
+        if (sacar(valor)) {
+            sacar(valor)
             if (contaBancaria.depositar(valor)){
                 contaBancaria.depositar(valor)
         println("Transferência realizada.")
