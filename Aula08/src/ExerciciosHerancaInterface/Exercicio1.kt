@@ -74,27 +74,30 @@ fun main() {
                         println("Conta inexistente, por favor tente novamente")
                         break
                     }
+                    println("----------------------------------------------------------------------------------------")
                     println("Você pode realizar as seguintes operações:")
                     println("a. Depositar.")
                     println("b. Sacar.")
                     println("c. Transferir")
                     println("d. Gerar Relatório.")
                     println("e. Retornar ao menu anterior.")
+                    println("----------------------------------------------------------------------------------------")
                     print("Digite a operação desejada: ")
                     opcao2 = readLine()!!.toString()
                     if (opcao2 == "a") {
                         print("Digite o valor a ser depositado com dois dígitos decimais: ")
                         var valor = readLine()!!.toDouble()
                         contaExiste.depositar(valor)
+                        loop2 = false
                     } else if (opcao2 == "b") {
                         print("Digite o valor a ser sacado com dois dígitos decimais: ")
                         var valor = readLine()!!.toDouble()
                         if(contaExiste.sacar(valor)) {
                             println("Saque realizado.")
-                            break
+                            loop2 = false
                         } else {
                             println("Não foi possível realizar o saque.")
-                            break
+                            loop2 = false
                         }
                     } else if (opcao2 == "c") {
                         print("Digite o valor a ser transferido com dois dígitos decimais: ")

@@ -1,6 +1,6 @@
 package ExerciciosHerancaInterface
 
-class ContaCorrente(private val taxaDeOperacao: Double, conta: Int, saldo: Double): ContaBancaria(conta, saldo) {
+class ContaCorrente(val taxaDeOperacao: Double, conta: Int, saldo: Double): ContaBancaria(conta, saldo) {
     override fun sacar(valor: Double): Boolean {
         if (valor + taxaDeOperacao < saldo) {
             saldo -= (valor + taxaDeOperacao)
@@ -12,7 +12,7 @@ class ContaCorrente(private val taxaDeOperacao: Double, conta: Int, saldo: Doubl
     }
 
     override fun depositar(valor: Double): Boolean {
-        if (valor > (saldo + taxaDeOperacao)) {
+        if (valor > taxaDeOperacao) {
         saldo += (valor - taxaDeOperacao)
             return true
         } else {
@@ -25,10 +25,10 @@ class ContaCorrente(private val taxaDeOperacao: Double, conta: Int, saldo: Doubl
 
     override fun mostrarDados() {
         super.mostrarDados()
-        println(taxaDeOperacao)
+        println("Taxa de operação: $taxaDeOperacao")
     }
 
-    override fun transferir(valor: Double, contaBancaria: ContaBancaria) {
-        TODO("Not yet implemented")
-    }
+//    override fun transferir(valor: Double, contaBancaria: ContaBancaria) {
+//        TODO("Not yet implemented")
+//    }
 }
