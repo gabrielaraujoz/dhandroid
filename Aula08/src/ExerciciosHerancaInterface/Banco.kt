@@ -1,7 +1,7 @@
 package ExerciciosHerancaInterface
 
 class Banco(): Imprimivel {
-    val contas: ArrayList<ContaBancaria> = ArrayList<ContaBancaria>()
+    val contas = ArrayList<ContaBancaria>()
 
 
     fun inserirConta(conta: ContaBancaria) {
@@ -18,7 +18,10 @@ class Banco(): Imprimivel {
     }
 
     override fun mostrarDados() {
-        contas.forEach{it.mostrarDados()}
+        contas.forEach{
+            it.mostrarDados()
+            println()
+        }
 
     }
 }

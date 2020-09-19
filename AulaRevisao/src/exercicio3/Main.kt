@@ -13,7 +13,7 @@ fun main() {
     println(produto.mostra())
     produto.precisaRepor()
 
-    
+
 //  ---> Aqui são testes realizados antes de utilizar a tratativa de throw Exception()
 //
 //

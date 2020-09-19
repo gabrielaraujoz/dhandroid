@@ -19,10 +19,8 @@ class ContaPoupanca(val limiteCredito: Double, conta: Int, saldo: Double): Conta
 
     override fun mostrarDados() {
         super.mostrarDados()
-        println("Limite de crédito: $limiteCredito")
+        println("Limite de crédito: R$ $limiteCredito")
     }
 
-//    override fun transferir(valor: Double, contaBancaria: ContaBancaria) {
-//        TODO("Not yet implemented")
-//    }
+
 }

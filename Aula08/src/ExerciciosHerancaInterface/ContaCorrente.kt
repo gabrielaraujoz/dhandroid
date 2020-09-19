@@ -25,10 +25,8 @@ class ContaCorrente(val taxaDeOperacao: Double, conta: Int, saldo: Double): Cont
 
     override fun mostrarDados() {
         super.mostrarDados()
-        println("Taxa de operação: $taxaDeOperacao")
+        println("Taxa de operação: R$ $taxaDeOperacao")
     }
 
-//    override fun transferir(valor: Double, contaBancaria: ContaBancaria) {
-//        TODO("Not yet implemented")
-//    }
+
 }

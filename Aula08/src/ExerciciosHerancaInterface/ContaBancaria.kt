@@ -5,7 +5,7 @@ abstract class ContaBancaria (protected val conta: Int, protected var saldo: Dou
     abstract fun depositar(valor: Double): Boolean
     override fun mostrarDados() {
         println("Número da conta: $conta")
-        println("Saldo da conta: $saldo")
+        println("Saldo da conta: R$ $saldo")
     }
     open fun transferir(valor: Double, contaBancaria: ContaBancaria) {
         if (sacar(valor)) {
