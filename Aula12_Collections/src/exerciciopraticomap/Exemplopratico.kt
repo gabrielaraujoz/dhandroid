@@ -30,4 +30,8 @@ fun main() {
 
     println(estadosAgrupados)
 
+    //outra maneira é bom o groupBy
+
+    println(pessoas.groupBy { it.estado.sigla })
+
 }
