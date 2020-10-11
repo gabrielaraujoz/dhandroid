@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">FakeLoginApp</string>
+    <string name="create_account">Create Account</string>
+    <string name="log_in">Log in</string>
+    <string name="password">password</string>
+    <string name="email">email</string>
+    <string name="login">LOGIN</string>
+    <string name="to_continue">TO CONTINUE</string>
+    <string name="sign_up">SIGN UP</string>
+    <string name="agree_privacy">I have read and agree the Privacy Policy</string>
+    <string name="wrong_login">Usuário/senha inválidos, por favor tente novamente.</string>
+    <string name="empty_field">Campo vazio</string>
+    <string name="signup_sucess_message">Conta cadastrada com sucesso!</string>
+</resources>
