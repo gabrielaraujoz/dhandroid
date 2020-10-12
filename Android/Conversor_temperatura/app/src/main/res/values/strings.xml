@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Conversor de temperatura</string>
+    <string name="insert_temp">Insira uma temperatura</string>
+</resources>
