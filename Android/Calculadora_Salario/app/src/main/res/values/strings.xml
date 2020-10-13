@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Calculadora de Salário</string>
+    <string name="horas_trabalhadas">Horas Trabalhadas</string>
+    <string name="valor_da_hora">Valor da hora</string>
+    <string name="digite_o_valor_por_hora">Digite o valor por hora</string>
+    <string name="digite_as_horas_trabalhadas">Digite as horas trabalhadas</string>
+</resources>
