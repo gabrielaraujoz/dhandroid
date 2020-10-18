@@ -66,7 +66,7 @@ class ColorSelector : Fragment(), Colors {
 
         txtInputGreen.doOnTextChanged { text, start, count, after ->
             if (text.isNullOrEmpty()){
-                txtInputRed.error = "O campo não pode ser vazio"
+                txtInputGreen.error = "O campo não pode ser vazio"
             } else {
                 green = text.toString().toInt()
                 sliderGreen.value = green.toFloat()
@@ -82,7 +82,7 @@ class ColorSelector : Fragment(), Colors {
 
         txtInputBlue.doOnTextChanged { text, start, count, after ->
             if (text.isNullOrEmpty()){
-                txtInputRed.error = "O campo não pode ser vazio"
+                txtInputBlue.error = "O campo não pode ser vazio"
             } else {
                 blue = text.toString().toInt()
                 sliderBlue.value = blue.toFloat()
