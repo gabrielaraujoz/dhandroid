@@ -1,4 +1,4 @@
 package com.gabrielaraujoz.aula22_exerciciorecyler
 
-class Contact {
+data class Contact(val name: String, val message: String, val time: String) {
 }
