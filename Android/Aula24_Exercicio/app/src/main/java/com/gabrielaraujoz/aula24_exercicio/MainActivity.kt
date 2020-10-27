@@ -6,7 +6,15 @@ import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
 import org.w3c.dom.Text
 
-class MainActivity : AppCompatActivity() {
+const val LOG_IN_FRAGMENT = 0
+const val SIGN_UP_FRAGMENT = 1
+
+class MainActivity : AppCompatActivity(), IMudarTab {
+
+    private val tab by lazy { findViewById<TabLayout>(R.id.tabLayout)}
+
+    private lateinit var loginFragment: LoginFragment
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -25,5 +33,20 @@ class MainActivity : AppCompatActivity() {
         )
 
         viewPager.adapter = ViewPagerAdapter(fragments, titulos, supportFragmentManager)
+    }
+
+    override fun mudarTab(posicao: Int) {
+        var novaPosicao = if (posicao == LOG_IN_FRAGMENT) {
+            SIGN_UP_FRAGMENT
+        } else {
+            LOG_IN_FRAGMENT
+        }
+
+        val tabNova = tab.getTabAt(novaPosicao)
+        tabNova?.select()
+    }
+
+    override fun usernameAlterado(username: String) {
+        loginFragment.usernameAlterado(username)
     }
 }

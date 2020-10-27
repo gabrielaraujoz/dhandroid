@@ -3,7 +3,7 @@ package com.gabrielaraujoz.aula24_exercicio
 import com.gabrielaraujoz.aula24_exercicio.users.UserModel
 import java.lang.Exception
 
-interface userService {
+interface IUserService {
     private val users: ArrayList<UserModel>
         get() = arrayListOf<UserModel>()
 

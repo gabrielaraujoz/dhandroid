@@ -4,6 +4,8 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,18 +14,19 @@ import android.widget.Button
 import android.widget.CheckBox
 import android.widget.Toast
 import com.gabrielaraujoz.aula24_exercicio.users.UserService
+import com.google.android.material.button.MaterialButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 
 
 class SignupFragment : Fragment() {
 
+    private lateinit var mudarTabListener: IMudarTab
 
-    private lateinit var activity: userService
-
-
-    override fun onAttach(context: Context) {
+        override fun onAttach(context: Context) {
         super.onAttach(context)
+
+            mudarTabListener = context as IMudarTab
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,8 +46,8 @@ class SignupFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val main = super.getActivity()
-        val button = view.findViewById<Button>(R.id.btnSignup)
+        val main = view.context
+        val button = view.findViewById<MaterialButton>(R.id.btnSignup)
 
 
         button.setOnClickListener() {
@@ -72,11 +75,10 @@ class SignupFragment : Fragment() {
                 try {
                     UserService.register(txtUsername, txtPassword)
                     Toast.makeText(main, "Conta criada com sucesso!", Toast.LENGTH_LONG).show()
-                    LoginFragment.apply {
-                        arguments = Bundle().apply {
-                            putString("USERNAME", txtUsername)
-                        }
-                    }
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        mudarTabListener.mudarTab(SIGN_UP_FRAGMENT)
+                        mudarTabListener.usernameAlterado(txtUsername)
+                    }, 2000)
 
                 } catch (e: Exception) {
                     Toast.makeText(main, e.message, Toast.LENGTH_LONG).show()
