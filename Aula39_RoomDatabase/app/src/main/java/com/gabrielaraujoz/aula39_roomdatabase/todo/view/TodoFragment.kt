@@ -15,12 +15,14 @@ import com.gabrielaraujoz.aula39_roomdatabase.todo.entity.TodoEntity
 import com.gabrielaraujoz.aula39_roomdatabase.todo.repository.TodoRepository
 import com.gabrielaraujoz.aula39_roomdatabase.todo.viewmodel.TodoViewModel
 import com.google.android.material.button.MaterialButton
+import com.google.android.material.textfield.TextInputEditText
 
 
 class TodoFragment : Fragment() {
 
     lateinit var _viewModel: TodoViewModel
     lateinit var _view: View
+    private val _fixedID = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,20 +38,38 @@ class TodoFragment : Fragment() {
 
         _view = view
 
+        val addButton = _view.findViewById<MaterialButton>(R.id.btnAddTodo)
+        val inputTodo = _view.findViewById<TextInputEditText>(R.id.txtInputTodo)
+
+        addButton.setOnClickListener() {
+            val text = inputTodo.text.toString()
+
+            if (text.isEmpty()) {
+                inputTodo.error = "Please fill in your new To do!"
+            }
+
+            val newTodo = TodoEntity(_fixedID, text)
+
+            addTodo(newTodo)
+            _viewModel.getTodo()
+
+        }
+
+
         _viewModel = ViewModelProvider(
             this,
             TodoViewModel.TodoViewModelFactory(TodoRepository(AppDatabase.getDatabase(view.context).todoDao()))
         ).get(TodoViewModel::class.java)
 
-        _viewModel.todos.observe(viewLifecycleOwner, Observer {
+
+
+        _viewModel.getTodo().observe(viewLifecycleOwner, Observer {
             createList(it)
         })
 
-        val addButton = _view.findViewById<MaterialButton>(R.id.btnAddTodo)
 
-        addButton.setOnClickListener() {
 
-        }
+
 
     }
 

@@ -11,6 +11,6 @@ interface TodoDao {
     @Insert
     suspend fun addTodo(todo: TodoEntity)
 
-    @Query("SELECT COUNT(*) FROM Todo")
-    suspend fun count() : Int
+    @Query("SELECT * FROM Todo")
+    suspend fun getTodo() : List<TodoEntity>
 }

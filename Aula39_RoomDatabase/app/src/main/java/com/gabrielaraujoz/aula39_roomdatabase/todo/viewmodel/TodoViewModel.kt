@@ -10,19 +10,18 @@ import kotlinx.coroutines.Dispatchers
 
 class TodoViewModel(private val repository: TodoRepository): ViewModel() {
 
-    private val _todos = ArrayList<TodoEntity>()
+    private lateinit var _todos: List<TodoEntity>
     val todos = MutableLiveData<List<TodoEntity>>()
 
     fun addTodo(todo: TodoEntity) = liveData(Dispatchers.IO) {
         repository.addTodo(todo)
-        _todos.add(todo)
-        todos.value = _todos
-        emit(todos)
+        emit(true)
     }
 
-    fun count() = liveData(Dispatchers.IO) {
-        val count = repository.count()
-        emit(count)
+    fun getTodo() = liveData(Dispatchers.IO) {
+       _todos =  repository.getTodo()
+
+        emit(_todos)
     }
 
     class TodoViewModelFactory (

@@ -10,7 +10,8 @@ class TodoAdapter(private val dataSet: List<TodoEntity>): RecyclerView.Adapter<T
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TodoViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.list_item, parent, false)
 
-        return TodoViewHolder(view)    }
+        return TodoViewHolder(view)
+    }
 
     override fun onBindViewHolder(holder: TodoViewHolder, position: Int) {
         val item = dataSet[position]
