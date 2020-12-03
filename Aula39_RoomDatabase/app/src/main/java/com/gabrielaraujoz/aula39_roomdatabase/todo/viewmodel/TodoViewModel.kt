@@ -18,11 +18,7 @@ class TodoViewModel(private val repository: TodoRepository): ViewModel() {
         emit(true)
     }
 
-    fun getTodo() = liveData(Dispatchers.IO) {
-       _todos =  repository.getTodo()
 
-        emit(_todos)
-    }
 
     class TodoViewModelFactory (
         private val repository: TodoRepository

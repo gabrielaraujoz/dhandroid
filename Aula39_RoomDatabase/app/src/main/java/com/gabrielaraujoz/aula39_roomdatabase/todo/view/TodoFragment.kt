@@ -23,6 +23,7 @@ class TodoFragment : Fragment() {
     lateinit var _viewModel: TodoViewModel
     lateinit var _view: View
     private val _fixedID = 0
+    var todos = mutableListOf<TodoEntity>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,43 +42,6 @@ class TodoFragment : Fragment() {
         val addButton = _view.findViewById<MaterialButton>(R.id.btnAddTodo)
         val inputTodo = _view.findViewById<TextInputEditText>(R.id.txtInputTodo)
 
-        addButton.setOnClickListener() {
-            val text = inputTodo.text.toString()
-
-            if (text.isEmpty()) {
-                inputTodo.error = "Please fill in your new To do!"
-            }
-
-            val newTodo = TodoEntity(_fixedID, text)
-
-            addTodo(newTodo)
-            _viewModel.getTodo()
-
-        }
-
-
-        _viewModel = ViewModelProvider(
-            this,
-            TodoViewModel.TodoViewModelFactory(TodoRepository(AppDatabase.getDatabase(view.context).todoDao()))
-        ).get(TodoViewModel::class.java)
-
-
-
-        _viewModel.getTodo().observe(viewLifecycleOwner, Observer {
-            createList(it)
-        })
-
-
-
-
-
-    }
-
-    fun addTodo(todo: TodoEntity) {
-        _viewModel.addTodo(todo)
-    }
-
-    fun createList(todos: List<TodoEntity>) {
         val recyclerView = _view.findViewById<RecyclerView>(R.id.lista)
         val manager = LinearLayoutManager(context)
 
@@ -89,7 +53,34 @@ class TodoFragment : Fragment() {
             layoutManager = manager
             adapter = todoAdapter
         }
+
+        addButton.setOnClickListener() {
+            val text = inputTodo.text.toString()
+
+            if (text.isEmpty()) {
+                inputTodo.error = "Please fill in your new To do!"
+            }
+
+            val newTodo = TodoEntity(_fixedID, text)
+
+            _viewModel.addTodo(newTodo).observe(viewLifecycleOwner, {
+                if (it) {
+                    todos.add(newTodo)
+                    todoAdapter.notifyDataSetChanged()
+                }
+            })
+
+        }
+
+
+        _viewModel = ViewModelProvider(
+            this,
+            TodoViewModel.TodoViewModelFactory(TodoRepository(AppDatabase.getDatabase(view.context).todoDao()))
+        ).get(TodoViewModel::class.java)
+
     }
+
+
 
 
 }
