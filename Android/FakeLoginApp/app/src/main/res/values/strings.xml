@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FakeLoginApp</string>
+    <string name="app_name">Fake Login Tab</string>
     <string name="create_account">Create Account</string>
     <string name="log_in">Log in</string>
     <string name="password">password</string>
