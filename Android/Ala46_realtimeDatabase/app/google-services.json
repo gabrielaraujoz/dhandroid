@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "229443613824",
+    "firebase_url": "https://aula46firebase-default-rtdb.firebaseio.com",
+    "project_id": "aula46firebase",
+    "storage_bucket": "aula46firebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:229443613824:android:7d8294d7841232a252e265",
+        "android_client_info": {
+          "package_name": "com.gabrielaraujoz.aula46_realtimedatabase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "229443613824-g1lmsutr941ka12l3ol7bbjm9bed0m7l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrkdjCzZ9fXrEwM-Fxer4oK3GV5PzxG5Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "229443613824-g1lmsutr941ka12l3ol7bbjm9bed0m7l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

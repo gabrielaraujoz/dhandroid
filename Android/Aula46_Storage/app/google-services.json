@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "278720388794",
+    "project_id": "aula46storage-31d4a",
+    "storage_bucket": "aula46storage-31d4a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:278720388794:android:b0d08de6e9564fa6d46c83",
+        "android_client_info": {
+          "package_name": "com.gabrielaraujoz.aula46_storage"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "278720388794-tbbv1us22gt10tbnfauk3p751e9v5ljk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcr4knz_GctGRpwKg5xMemI0GTwWA2kqc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "278720388794-tbbv1us22gt10tbnfauk3p751e9v5ljk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
